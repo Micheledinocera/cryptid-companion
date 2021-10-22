@@ -32,5 +32,9 @@
   "Sicuro":"Reset per ",
   "OK":"OK",
   "Cancel":"Cancel",
-  "Giocatore":"Giocatore"
+  "Giocatore":"Giocatore",
+  "Legenda":"Legenda",
+  "Sviluppato":"Sviluppato da",
+  "clicca1":"Clicca sul nome giocatore per modificarlo",
+  "clicca2":"Clicca sul colore giocatore per modificarlo"
 }

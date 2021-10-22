@@ -11,9 +11,15 @@
         ref="input"
         v-else
       />
-      <el-icon :size="20" color="#000" class="refresh" v-if="showRefresh">
-        <refresh @click="dialogVisible = true" />
-      </el-icon>
+      <div
+        class="icon-container"
+        v-if="showRefresh"
+        @click.stop="dialogVisible = true"
+      >
+        <el-icon :size="20" color="#000" class="refresh">
+          <refresh />
+        </el-icon>
+      </div>
     </div>
     <el-dialog v-model="dialogVisible" width="90%">
       <span>{{ $t("Sicuro") + player.nome }}</span>

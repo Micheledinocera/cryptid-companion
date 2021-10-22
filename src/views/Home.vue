@@ -1,7 +1,14 @@
 <template>
   <div class="home">
     <div class="header">
-      <div class="title"></div>
+      <a
+        class="title"
+        href="https://playagameedizioni.it/il-nostro-catalogo-giochi/cryptid/"
+        target="blank"
+      ></a>
+      <el-icon :size="20" :color="'#fff'" @click="() => (dialogVisible = true)">
+        <info-filled />
+      </el-icon>
       <el-select v-model="$i18n.locale">
         <el-option
           v-for="(lang, i) in $options.LANGS"
@@ -25,6 +32,35 @@
         </el-option>
       </el-select>
     </div>
+    <el-dialog v-model="dialogVisible" width="90%">
+      <div class="title">Cryptid Companion</div>
+      <div class="info">
+        {{ $t("Sviluppato") }}
+        <a href="mailto:mdinocera.digital@gmail.com"> Michele Di Nocera </a>
+      </div>
+      <div class="info1">{{ $t("clicca1") }}</div>
+      <div class="info2">{{ $t("clicca2") }}</div>
+      <div class="legenda">
+        {{ $t("Legenda") }}
+        <el-scrollbar>
+          <div
+            :class="['item', indizio.key]"
+            v-for="indizio in indiziList"
+            :key="indizio.key"
+          >
+            <div :class="['icon', indizio.key]"></div>
+            {{ $t(indizio.key) }}
+          </div>
+        </el-scrollbar>
+      </div>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisible = false" type="primary">{{
+            $t("OK")
+          }}</el-button>
+        </span>
+      </template>
+    </el-dialog>
     <el-scrollbar>
       <div
         class="players-list"
@@ -40,6 +76,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Static from "@/utils/Static";
+import { InfoFilled } from "@element-plus/icons";
 import { mapActions, mapGetters } from "vuex";
 import PlayerItem from "@/components/PlayerItem/PlayerItem.vue";
 import Player, { IPlayer } from "@/model/Player";
@@ -50,6 +87,8 @@ export default defineComponent({
   data() {
     return {
       playerNumbers: [...Array(6).keys()].filter((item) => item >= 2),
+      dialogVisible: false,
+      indiziList: [...Static.INDIZI, Static._3N],
     };
   },
   computed: {
@@ -100,7 +139,7 @@ export default defineComponent({
   mounted() {
     this.playersNum = this.playerNumbers[0];
   },
-  components: { PlayerItem },
+  components: { PlayerItem, InfoFilled },
 });
 </script>
 
