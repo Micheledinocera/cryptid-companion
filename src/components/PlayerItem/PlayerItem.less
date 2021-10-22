@@ -1,0 +1,48 @@
+@import "../../utils/variables.less";
+
+.player-item{
+    border-top: solid 1px lightgray;
+    .header{
+        display: flex;
+        padding: 8px;
+        .el-icon{
+            &.edit{
+                margin-left: 8px;
+            }
+            &.refresh{
+                position: relative;
+                margin-left: auto;
+                cursor: pointer;
+            }
+        }
+        .nome{ cursor: pointer; }
+        &.blue{ background: linear-gradient(45deg, #42D8F3 80%, #27556F); }
+        &.orange{ background: linear-gradient(45deg, #EDAA39 80%, #833207); }
+        &.green{ background: linear-gradient(45deg, #A6E2AC 80%, #3B6E35); }
+        &.red{ background: linear-gradient(45deg, #E44557 80%, #A40E0D); }
+        &.purple{ background: linear-gradient(45deg, #CD61D8 80%, #5D1956); }
+    }
+    .indizi-container{
+        column-count: 2;
+        @media @tablet{ column-count: 1; }
+        padding: 8px 0 0 0;
+        .indizi-row{
+            margin: 0 0 10px 0;
+            .indizi-group{
+                display: flex;
+                width: calc(100% - 8px);
+                margin-left: auto;
+                .group{
+                    border-radius: 8px;
+                    border: solid 1px black;
+                    padding: calc(@icon-size - 18px) 6px;
+                    width: 80px;
+                }
+                .el-scrollbar{
+                    margin: auto;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,59 @@
+@import "../../utils/variables.less";
+
+
+
+.el-scrollbar{ 
+    padding-right: 10px; 
+    padding-left: 10px;
+    margin-left: 10px;
+    width: 100%;
+}
+.indizi-list{
+    display: flex;
+    .indizi-item{
+        display: flex;
+        margin: 4px 8px;
+        &.removed{ opacity: 0.25; }
+        &:first-child{ margin-left: 0;}
+        .isNot{
+            position: relative;
+            background: linear-gradient(225deg, transparent 45%, #e30000 48%, transparent 52%);
+            width: @icon-size;
+            height: @icon-size;
+            margin-left: -@icon-size;
+        }
+        .icon-container{
+            .icon{
+                width: @icon-size;
+                height: @icon-size;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                &.LoP{ background-image: url(../../assets/icons/so.png) }
+                &.LoD{ background-image: url(../../assets/icons/od.png) }
+                &.LoM{ background-image: url(../../assets/icons/mo.png) }
+                &.LoF{ background-image: url(../../assets/icons/of.png) }
+                &.PoD{ background-image: url(../../assets/icons/ds.png) }
+                &.PoM{ background-image: url(../../assets/icons/ms.png) }
+                &.PoF{ background-image: url(../../assets/icons/fs.png) }
+                &.DoM{ background-image: url(../../assets/icons/md.png) }
+                &.DoF{ background-image: url(../../assets/icons/fd.png) }
+                &.MoF{ background-image: url(../../assets/icons/mf.png) }
+                &.\31 L{ background-image: url(../../assets/icons/ocean.svg)}
+                &.\31 D{ background-image: url(../../assets/icons/desert.svg)}
+                &.\31 M{ background-image: url(../../assets/icons/mountain.svg)}
+                &.\31 P{ background-image: url(../../assets/icons/swamp.svg)}
+                &.\31 F{ background-image: url(../../assets/icons/forest.svg)}
+                &.\31 A{ background-image: url(../../assets/icons/animal-svgrepo-com.svg); }
+                &.\32 C{ background-image: url(../../assets/icons/plain-triangle-svgrepo-com.svg); }
+                &.\32 M{ background-image: url(../../assets/icons/hexagon-svgrepo-com.svg); }
+                &.\32 O{ background-image: url(../../assets/icons/bear-svgrepo-com.svg); }
+                &.\32 P{ background-image: url(../../assets/icons/panther-svgrepo-com.svg); }
+                &.\33 W{ background-image: url(../../assets/icons/buildings_white.svg); }
+                &.\33 G{ background-image: url(../../assets/icons/buildings_green.svg); }
+                &.\33 B{ background-image: url(../../assets/icons/buildings_blue.svg); }
+                &.\33 N{ background-image: url(../../assets/icons/buildings_black.svg); }
+            }
+        }
+    }
+}
