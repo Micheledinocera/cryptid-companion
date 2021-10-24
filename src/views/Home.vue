@@ -3,7 +3,7 @@
     <div class="header">
       <a
         class="title"
-        href="https://playagameedizioni.it/il-nostro-catalogo-giochi/cryptid/"
+        href="https://ospreypublishing.com/store/osprey-games/board-card-games/cryptid"
         target="blank"
       ></a>
       <el-icon :size="20" :color="'#fff'" @click="() => (dialogVisible = true)">
@@ -37,6 +37,14 @@
       <div class="info">
         {{ $t("Sviluppato") }}
         <a href="mailto:mdinocera.digital@gmail.com"> Michele Di Nocera </a>
+      </div>
+      <div class="info">
+        {{ $t("Compralo") }}
+        <a
+          href="https://ospreypublishing.com/store/osprey-games/board-card-games/cryptid"
+        >
+          {{ $t("Qui") }}
+        </a>
       </div>
       <div class="info1">{{ $t("clicca1") }}</div>
       <div class="info2">{{ $t("clicca2") }}</div>
@@ -138,6 +146,16 @@ export default defineComponent({
   },
   mounted() {
     this.playersNum = this.playerNumbers[0];
+    if (Static.LANGS.map((item) => item.value).includes(navigator.language))
+      this.$i18n.locale = navigator.language;
+    else {
+      var lan = navigator.language.substring(0, 2);
+      var filteredLang = Static.LANGS.filter((item) =>
+        item.value.startsWith(lan)
+      );
+      this.$i18n.locale =
+        filteredLang.length > 0 ? filteredLang[0].value : "en";
+    }
   },
   components: { PlayerItem, InfoFilled },
 });

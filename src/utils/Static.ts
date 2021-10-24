@@ -6,6 +6,8 @@ export default class Static {
     { label: "En", value: "en" },
   ];
 
+  static EN = "en";
+
   static INDIZI = [
     { key: "LoP", group: 0, isNot: false },
     { key: "LoD", group: 0, isNot: false },
