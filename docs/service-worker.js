@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/cryptid-companion/precache-manifest.86d7ffdb44bafcbf27f60e954dfebd87.js"
+  "/cryptid-companion/precache-manifest.15ecc425e1192932e1a6ca4372587d69.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "cryptid-companion"});
