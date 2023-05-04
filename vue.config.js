@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/cryptid-companion/' : '/',
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/cryptid-companion/" : "/",
   pluginOptions: {
     i18n: {
       locale: "it",
