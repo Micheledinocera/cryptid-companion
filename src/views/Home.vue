@@ -42,6 +42,7 @@
         {{ $t("Compralo") }}
         <a
           href="https://ospreypublishing.com/store/osprey-games/board-card-games/cryptid"
+          target="blank"
         >
           {{ $t("Qui") }}
         </a>
