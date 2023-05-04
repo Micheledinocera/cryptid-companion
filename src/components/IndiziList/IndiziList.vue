@@ -20,7 +20,6 @@
 import { defineComponent } from "vue";
 import { mapActions, mapGetters } from "vuex";
 import Indizio from "@/model/Indizio";
-// import Static from "@/utils/Static";
 
 export default defineComponent({
   name: "IndiziList",
@@ -49,9 +48,7 @@ export default defineComponent({
     ...mapGetters(["getPlayers", "getIsNot"]),
     indiziOrdered(): Indizio[] {
       var indiziLocale = [...this.indizi];
-      return indiziLocale.sort((a: Indizio /* , b: Indizio */) =>
-        this.removed(a) ? 1 : -1
-      );
+      return indiziLocale.sort((a: Indizio) => (this.removed(a) ? 1 : -1));
     },
   },
   props: ["indizi", "playerIndex"],

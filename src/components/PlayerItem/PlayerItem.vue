@@ -48,7 +48,9 @@
         :key="'group_' + index"
       >
         <div class="indizi-group">
-          <div class="group">{{ fromGroupToLabel(group) }}</div>
+          <div class="group" @click="() => toggleRow(index)">
+            {{ fromGroupToLabel(group) }}
+          </div>
           <IndiziList
             :indizi="indiziAll.filter((item) => item.group == group)"
             :playerIndex="playerIndex"
@@ -104,10 +106,10 @@ export default defineComponent({
     },
     refreshIndizi(): void {
       var players = [...this.getPlayers];
-      (players[this.playerIndex].indizi = this.getIsNot
+      players[this.playerIndex].indizi = this.getIsNot
         ? [...Static.INDIZI, Static._3N, ...Static.INDIZI_NOT]
-        : [...Static.INDIZI]),
-        this.setPlayers(players);
+        : [...Static.INDIZI];
+      this.setPlayers(players);
     },
     inputBlur(): void {
       this.isEditing = false;
@@ -133,9 +135,24 @@ export default defineComponent({
         ];
       this.setPlayersColor(playersColor);
     },
-    // refreshClick(): void {
-    //   if (!lodash.isEqual(this.player.indizi,this.indiziAll)) this.dialogVisible = true;
-    // },
+    toggleRow(index: number): void {
+      var players = [...this.getPlayers];
+      var indiziToAdd = this.indiziAll.filter(
+        (indizio: Indizio) => indizio.group == index
+      );
+      var filteredIndizi = players[this.playerIndex].indizi.filter(
+        (indizio: Indizio) => indizio.group == index
+      );
+      if (filteredIndizi.length == 0)
+        players[this.playerIndex].indizi = [
+          ...players[this.playerIndex].indizi,
+          ...indiziToAdd,
+        ];
+      else
+        players[this.playerIndex].indizi = players[
+          this.playerIndex
+        ].indizi.filter((indizio: Indizio) => indizio.group != index);
+    },
   },
   computed: {
     ...mapGetters(["getPlayers", "getIsNot", "getPlayersColor"]),
