@@ -14,6 +14,10 @@ export default defineComponent({
       // Chrome requires returnValue to be set.
       event.returnValue = "";
     });
+    window.addEventListener('popstate', (e) => {
+      e.preventDefault();
+      window.history.forward();
+    });
   },
 });
 </script>
