@@ -1,4 +1,5 @@
 # cryptid-companion
+
 ## Project Deploy
 
 The project is deployed with Github Pages at https://micheledinocera.github.io/cryptid-companion/
